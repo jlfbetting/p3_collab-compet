@@ -45,8 +45,8 @@ The advantage of such an implementation could be that the two players can adapt 
 so learning might be tougher. Furthermore, because the position of the ball is described in the states of both players, there is some redundancy. I changed the implementation of the critic class to allow two reward signals (since we have two players).
 
 ### Plot of rewards
- The plot below shows how the score changes as more episodes are simulated. On average, the score goes up. The environment was solved in 231 episodes, as can be seen in the notebook. The actor_local network gave an average score over 100 episodes of 30.04.
- ![Episode-score plot](https://github.com/jlfbetting/p2_continuous-control/blob/main/plot_solved.png)
+ The plot below shows how the score changes as more episodes are simulated. On average, the score goes up. The environment was solved in 2467 episodes, as can be seen in the notebook. The actor_local network gave an average score over 100 episodes of 0.505
+ ![Episode-score plot](https://github.com/jlfbetting/p3_collab-compet/blob/main/imp2.png)
   
  ### Ideas for future work
 * We could experiment with adding more elements to the neural networks, such as dropout layers.
