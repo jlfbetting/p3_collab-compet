@@ -9,15 +9,6 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 
-#self.config["buffer_size"] = int(1e5)  # replay buffer size
-#self.config["batch_size"] = 256        # minibatch size
-#self.config["gamma"] = 0.95            # discount factor
-#self.config["tau"] = 5e-2              # for soft update of target parameters
-#self.config["lr_actor"] = 1e-4         # learning rate of the actor 
-#self.config["lr_critic"] = 1e-4        # learning rate of the critic
-#self.config["weight_decay"] = 0        # L2 weight decay
-#self.config["learn_every"] = 100       # learn after this number of steps
-#self.config["learn_times"] = 40        # number of sampling and training per cycle
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 class Agent():
