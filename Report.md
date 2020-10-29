@@ -9,9 +9,9 @@ Jupyter Notebook in such a way that for each timestep, the DDPG agent first choo
 To my surprise, I did not even have to change the hyperparameters to reach the rubric goal of 0.5.
 
 The architecture of the actor networks is as follows:
-* input layer size = 33 (state space).
+* input layer size = 24 (state space).
 * 2 hidden layers of each 200 hidden units, with `ReLU` activation layers, and a batch normalization layer after the first hidden layer.
-* output layer size = 4 (the action space), with a tanh activation layer.
+* output layer size = 2 (the action space), with a tanh activation layer.
 
 The architecture of the critic networks is as follows:
 * input layer size = 4 (action space).
@@ -42,7 +42,7 @@ I also used a `random_seed` value of 10 in the notebook, which turned out to wor
 I wanted to see if I could improve performance by flattening the state and action spaces and feeding that to the agent. Whereas in implementation 1, the agent alternatingly
 plays player 1 and player 2, this implementation would be analogous to one agent playing both sides at the same time. I gave the critic network an extra parameter `reward_units` to accommodate multiple rewards.
 The advantage of such an implementation could be that the two players can adapt to each other's behaviour easily (because the actions are determined at the same time). The disadvantage would be that the state and action spaces become twice larger,
-so learning might be tougher. Furthermore, because the position of the ball is described in the states of both players, there is some redundancy. I changed the implementation of the critic class to allow two reward signals (since we have two players).
+so learning might be tougher. Furthermore, because the position of the ball is described in the states of both players, there is some redundancy. I changed the implementation of the critic class to allow two reward signals (since we have two players). Apart from the input and output layer sizes of the networks (which depend on the state and action spaces, and number of reward values), I kept the hyperparameters the same.
 
 ### Plot of rewards
  The plot below shows how the score changes as more episodes are simulated. On average, the score goes up. The environment was solved in 2467 episodes, as can be seen in the notebook. The actor_local network gave an average score over 100 episodes of 0.505. In other words, implementation 2 needed twice as many episodes as implementation 1 to reach the rubric goal, possibly because the agent needs to learn twice as many actions from a state space that is twice as large - in other words, the task is more complicated. 
